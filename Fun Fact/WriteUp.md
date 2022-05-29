@@ -19,8 +19,11 @@ other_random_array = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b'
 ```
 the encryption key follows the logic **other_random_array[random_array[0] + random_array[8]]** which is **other_random_array[35+23]**
 so we can get the character which is stored in key
+
 **other_random_array[58] = 'W'**
+
 **key = 'W'**
+
 Now that we know the key we can make our own function decode(), that Brute-Forces the right user input one character at a time.
 Our function decode() should have the encrypted variable, which essentially is the string our encrypted flag gets compared to, a list where we store our input data characters in.
 We can iterate through our encrypted string one character at a time and do the same xor logic like we do in the encryption process. We need a while loop which runs while our xor logic with the key doesn't return the character in the encrypted variable and our iterable is less than 128, so we won't get an infinite loop if we have some false code. Than we can append the iterabel outside of our nested loop to the inputdata list. After we've gone through the whole encrypted variable, we can return our solution, as we convert our contents of the inputdata list to characters and join them together in a string. The whole logic should look like this:

@@ -12,7 +12,7 @@ The first function we should look at is "main":
 Here we can see the prompt text. At the end of the function we can see, that another function named "*constructFlag(local_c)*" is called.
 So let's have a look at that function:
 
-![Ghidra constructFlag](Basic_Rev-Ghidra-constructFlag.png)
+![Ghidra constructFlag](Basic_Rev-Ghidra-constructFlag)
 
 in line 4 we can see that a parameter is been given by main. This parameter should be equal to our input.
 In line 22 is an if statement, which checks our number with *0x121* which is *289* in dezimal.

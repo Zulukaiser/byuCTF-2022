@@ -19,11 +19,11 @@ In line 22 is an if statement, which checks our number with *0x121* which is *28
 Let's give this number as an input for our program and see what's happening.
 We get the output "*Finished processing flag!*", but we don't get the flag itself. Let's dig deeper in Ghidra.
 We will have a second look on the *constructFlag()* function. When the if statement is true, we get some string operations.
-In line 24 we see the string "ctf" and in Line 25 we see a Datablock ==DAT_0010300d==
+In line 24 we see the string "ctf" and in Line 25 we see a Datablock <mark>DAT_0010300d</mark>
 We can navigate to this Data by double-clicking on it. There are now several Datablocks with strings or characters in it.
 If we write them down from top to bottom we get something that looks like a flag:
 *ctf byu { t3 fl g p l3453 _ ig n0 3 }*
-but remember, our flag format looks like this: ==Flag-Format: byuCTF{SOMETHING}==
+but remember, our flag format looks like this: <mark>Flag-Format: byuCTF{SOMETHING}</mark>
 so the strings seem to be in the wrong order and some characters seem to be missing.
 We can run our program in a debugger. I used edb-debugger. We can goto the expression main and make a breakpoint when the *constructFlag()*
 function is called.

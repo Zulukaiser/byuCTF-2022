@@ -6,10 +6,12 @@ We can try some numbers, but the output is always "Wrong number!". Guessing isn'
 So let's fire up Ghidra and look at the code!
 After opening the executable in Ghidra and the first analyzing by Ghidra, we can navigate to the functions folder and look at all the function we have.
 The first function we should look at is "main":
+
 ![Ghidra main](Basic_Rev-Ghidra-main.png)
 
 Here we can see the prompt text. At the end of the function we can see, that another function named "*constructFlag(local_c)*" is called.
 So let's have a look at that function:
+
 ![Ghidra constructFlag](Basic_Rev-Ghidra-constructFlag.png)
 
 in line 4 we can see that a parameter is been given by main. This parameter should be equal to our input.
@@ -25,11 +27,17 @@ but remember, our flag format looks like this: ==Flag-Format: byuCTF{SOMETHING}=
 so the strings seem to be in the wrong order and some characters seem to be missing.
 We can run our program in a debugger. I used edb-debugger. We can goto the expression main and make a breakpoint when the *constructFlag()*
 function is called.
+
 ![EDB constructFlag](Basic_Rev-EDB-constructFlag.png)
+
 In the edb-output window we can give our input. We can take one step in after the breakpoint, now we are in the *constructFlag()* function.
 We can set another breakpoint right before the string "*Finished processing flag!*" gets written in a register.
+
 ![EDB finished](Basic_Rev-EDB-finished.png)
+
 That way we have the constructed flag and our program won't close or overwrite the flag.
 We let the program run till our breakpoint catches it. In register **RDI** we can see our Flag.
+
 ![EDB flag](Basic_Rev-EDB-flag.png)
+
 The flag is *byuctf{t35t_fl4g_pl3453_ign0r3}*
